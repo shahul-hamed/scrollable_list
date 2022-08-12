@@ -1,5 +1,7 @@
 # Scrollable List
 
+A New Flutter package which helps to scroll the content with their respective bottom bar menu for android and ios.
+
 ## Features
 
 * Effective scroll with active tab indication
