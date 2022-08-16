@@ -29,3 +29,7 @@ migrate_working_dir/
 .dart_tool/
 .packages
 build/
+scrollable_list.iml
+pubspec.lock
+.packages
+example/pubspec.lock

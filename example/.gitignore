@@ -45,3 +45,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+/pubspec.lock
+**/doc/api/
+.dart_tool/
+.packages
+build
+
