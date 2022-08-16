@@ -10,11 +10,36 @@ A New Flutter package which helps to scroll the content with their respective bo
 
 * Install this package for scrollable main contents with bottom bar
 
-## Usage
+## Install
 
-* scrollable list supports scroll content with respective to the bottom bar menu
+* Add the dependency
+
+dependencies:
+  scrollable_list: ^0.0.1
+
+* Import the package
+
+```dart
+import 'package:scrollable_list/scrollable_list.dart';
+```
 
 ## How to use
+
+* Take list of bottom menus with title, icon and unique id.
+
+* Write list of body contents with title , content and unique id.
+
+* Make list as CommonList structure.
+
+* Must use same unique id for scrolling specific content purpose.
+
+## Screenshots
+
+<img src="home.jpg" height="300em" />
+<img src="search.jpg" height="300em" />
+
+## Example
+
 ```dart
 class ScrollablePage extends StatelessWidget {
   final String title;
@@ -51,3 +76,9 @@ class ScrollablePage extends StatelessWidget {
 * This package has some required information for maintaining the scroll event with relevant bottom bar menu.
 
 * This package uses the two list one is for body page content and another one is bottom bar content.
+
+* Here , you can create own page contents for all pages.
+
+* This package supports four menu with scrolling and navigation controls.
+
+
