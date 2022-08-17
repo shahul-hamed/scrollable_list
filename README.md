@@ -15,7 +15,7 @@ A New Flutter package which helps to scroll the content with their respective bo
 * Add the dependency
 
 dependencies:
-  scrollable_list: ^0.0.1
+  scrollable_list: ^0.0.2
 
 * Import the package
 
@@ -31,12 +31,12 @@ import 'package:scrollable_list/scrollable_list.dart';
 
 * Make list as CommonList structure.
 
-* Must use same unique id for scrolling specific content purpose.
+* Must use same unique id to relevant menu and page controls for scrolling purpose.
 
 ## Screenshots
 
-<img src="home.jpg" height="300em" />
-<img src="search.jpg" height="300em" />
+<img src="/home.jpg" height="300em" />
+<img src="/search.jpg" height="300em" />
 
 ## Example
 
@@ -77,8 +77,12 @@ class ScrollablePage extends StatelessWidget {
 
 * This package uses the two list one is for body page content and another one is bottom bar content.
 
-* Here , you can create own page contents for all pages.
+* List content must have the same unique id for relevant page and bottom menu element.
 
-* This package supports four menu with scrolling and navigation controls.
+* Here, You can create own page design with contents,title and unique id  for all pages.
+
+* This package supports four bottom bar menu and four page controls 
+
+* It gives smooth scrolling and navigation.
 
 

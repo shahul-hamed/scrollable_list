@@ -1,10 +1,9 @@
-// ignore_for_file: library_private_types_in_public_api
-
 import 'package:flutter/material.dart';
 import 'package:scrollable_list/appbar.dart';
 import 'package:scrollable_list/list.dart';
 
 class ScrollableWidget extends StatefulWidget {
+  /// A stateful widget with below elements
   final PreferredSizeWidget appbar;
   final ScrollController scrollController;
   final List<CommonList> bodyContent;
@@ -16,35 +15,42 @@ class ScrollableWidget extends StatefulWidget {
   final int selectedIndex;
   const ScrollableWidget(
       {Key? key,
-      required this.scrollController,
-      this.selectedIndex = 0,
-      this.isSelected = false,
-      this.selectedColor = Colors.black,
-      this.unSelectedColor = Colors.black26,
-      this.isBottomLabelOnly = false,
-      required this.bodyContent,
-      required this.bottomContent,
+
+      /// Initialization of customized app bar widget
       this.appbar = const CustomAppbar(
         title: "Scrollable List",
-      )})
+      ),
+      required this.scrollController,
+      required this.bodyContent,
+      required this.bottomContent,
+      this.isBottomLabelOnly = false,
+      this.selectedColor = Colors.black,
+      this.unSelectedColor = Colors.black26,
+      this.isSelected = false,
+      this.selectedIndex = 0})
       : super(key: key);
 
   @override
-  _ScrollableWidgetState createState() => _ScrollableWidgetState();
+  ScrollableWidgetState createState() => ScrollableWidgetState();
 }
 
-class _ScrollableWidgetState extends State<ScrollableWidget> {
+class ScrollableWidgetState extends State<ScrollableWidget> {
   @override
   Widget build(BuildContext context) {
+    /// Scaffold widget has app bar and notification listener as body widget.
     return Scaffold(
       appBar: widget.appbar,
       body: NotificationListener(
+        /// Listener to observe the scroll event.
         child: ListView(
           scrollDirection: Axis.horizontal,
           controller: widget.scrollController,
+
+          /// Map entries for body content list
           children: widget.bodyContent
               .map((e) => Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 13.0,vertical: 10),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 13.0, vertical: 10),
                     child: Container(
                         color: Colors.white,
                         width: MediaQuery.of(context).size.width,
@@ -52,7 +58,9 @@ class _ScrollableWidgetState extends State<ScrollableWidget> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             Text(e.content.toString(),
                                 style: const TextStyle(fontSize: 18)),
                             e.mainWidget!
@@ -61,6 +69,8 @@ class _ScrollableWidgetState extends State<ScrollableWidget> {
                   ))
               .toList(),
         ),
+
+        /// Function for listening scroll controls.
         onNotification: (t) {
           if (t is ScrollEndNotification) {}
           setState(() {
@@ -70,16 +80,14 @@ class _ScrollableWidgetState extends State<ScrollableWidget> {
                     MediaQuery.of(context).size.width * 2) {
               currentIndex = 1;
             } else if (MediaQuery.of(context).size.width * 2 <
-                widget.scrollController.position.pixels &&
+                    widget.scrollController.position.pixels &&
                 widget.scrollController.position.pixels <
                     MediaQuery.of(context).size.width * 3) {
               currentIndex = 2;
-            }
-            else if (MediaQuery.of(context).size.width * 3 <
+            } else if (MediaQuery.of(context).size.width * 3 <
                 widget.scrollController.position.pixels) {
               currentIndex = 3;
-            }
-            else if (MediaQuery.of(context).size.width >
+            } else if (MediaQuery.of(context).size.width >
                 widget.scrollController.position.pixels) {
               currentIndex = 0;
             }
@@ -95,32 +103,41 @@ class _ScrollableWidgetState extends State<ScrollableWidget> {
           child: ListView(
             scrollDirection: Axis.horizontal,
             shrinkWrap: true,
-            children: widget.bottomContent.asMap().entries
+            /// Map entries for bottom content list
+            children: widget.bottomContent
+                .asMap()
+                .entries
                 .map((e) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
                       child: InkWell(
                         onTap: () {
-                          // unique id must be same
                           setState(() {
+                            // Assigning a index of map object to currentIndex variable.
                             currentIndex = e.key;
                           });
-                          // print("index${e.value.uniqueID}");
-                          // print("index$currentIndex");
-                          widget.scrollController.animateTo((currentIndex.toDouble() *
-                              MediaQuery.of(context).size.width)+(currentIndex !=0?currentIndex*20:0), duration: const Duration(milliseconds: 1), curve: Curves.fastLinearToSlowEaseIn);
+
+                          /// Scroll position change based on the current index.
+                          widget.scrollController.animateTo(
+                              (currentIndex.toDouble() *
+                                      MediaQuery.of(context).size.width) +
+                                  (currentIndex != 0 ? currentIndex * 20 : 0),
+                              duration: const Duration(milliseconds: 1),
+                              curve: Curves.fastLinearToSlowEaseIn);
                         },
                         child: Column(
                           children: [
+                            /// Check whether the conditions is true/false , if it is true SizedBox will be displayed.
                             widget.isBottomLabelOnly
                                 ? const SizedBox()
                                 : Icon(
                                     e.value.icon,
                                     size: 30,
-                                    color: currentIndex ==e.key
-
+                                    color: currentIndex == e.key
                                         ? widget.selectedColor
                                         : widget.unSelectedColor,
                                   ),
+
+                            /// A title of the bottom bar menu
                             Text(
                               e.value.label.toString(),
                               style: TextStyle(
@@ -140,6 +157,7 @@ class _ScrollableWidgetState extends State<ScrollableWidget> {
     );
   }
 
+  /// Declaration of variables
   int currentIndex = 0;
   bool isExtended = false;
 }

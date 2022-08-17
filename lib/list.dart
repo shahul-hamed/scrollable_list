@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
+/// Class represents the default structure with following parameters
 class CommonList {
   String? label;
   String? content;

@@ -5,15 +5,34 @@ import 'package:scrollable_list/scrollable_list.dart';
 
 import 'content.dart';
 
+/// Class ScrollablePage with title argument
 class ScrollablePage extends StatelessWidget {
   final String title;
   ScrollablePage({Key? key, this.title = ""}) : super(key: key);
 
+  /// Unique id must be the same value in the below list
+  /// A list and bottom list with uniqueID , content , label , mainWidget
   final list = <CommonList>[
-    CommonList(uniqueID: 1, content: "Home page", label: "Home",mainWidget: const Content()),
-    CommonList(uniqueID: 2, content: "Search page", label: "Search",mainWidget: const Content()),
-    CommonList(uniqueID: 3, content: "Profile page", label: "Profile",mainWidget: const Content()),
-    CommonList(uniqueID: 4, content: "Settings page", label: "Settings",mainWidget: const Content()),
+    CommonList(
+        uniqueID: 1,
+        content: "Home page",
+        label: "Home",
+        mainWidget: const Content()),
+    CommonList(
+        uniqueID: 2,
+        content: "Search page",
+        label: "Search",
+        mainWidget: const Content()),
+    CommonList(
+        uniqueID: 3,
+        content: "Profile page",
+        label: "Profile",
+        mainWidget: const Content()),
+    CommonList(
+        uniqueID: 4,
+        content: "Settings page",
+        label: "Settings",
+        mainWidget: const Content()),
   ];
   final bottomList = [
     CommonList(
@@ -48,13 +67,17 @@ class ScrollablePage extends StatelessWidget {
       scrollController: controller,
       bodyContent: list,
       bottomContent: bottomList,
+
+      /// Customized app bar widget
       appbar: CustomAppbar(
-    title: title,
+        title: title,
       ),
+
+      /// Color represents the selected element
       selectedColor: Colors.blue,
+
+      /// Color represents the unselected element
       unSelectedColor: Colors.black38,
     );
   }
-
-
 }
