@@ -1,6 +1,6 @@
 name: scrollable_list
 description: A new Flutter package which helps to scroll the content with their respective bottom bar menu .
-version: 0.0.1
+version: 0.0.2
 # author: Shahul Hameed <shahul5.it@gmail.com>
 homepage: https://github.com/shahul-hamed/flutter-scrollable-list
 
