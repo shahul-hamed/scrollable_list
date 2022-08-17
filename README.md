@@ -74,8 +74,8 @@ class ScrollablePage extends StatelessWidget {
      /* Able to add image element for each object */
    final bottomList = [
      CommonList(uniqueID: 1,content:"",label: "Home",icon: Icons.home, image: "assets/images/home.png" ),
-     CommonList(uniqueID: 2,content:"",label: "Search",icon: Icons.search_rounded, ),
-     CommonList(uniqueID: 3,content:"",label: "Profile",icon: Icons.person, ),
+     CommonList(uniqueID: 2,content:"",label: "Search",icon: Icons.search_rounded ),
+     CommonList(uniqueID: 3,content:"",label: "Profile",icon: Icons.person ),
    ];
   final ScrollController controller = ScrollController();
   @override
