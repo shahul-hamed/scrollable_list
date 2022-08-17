@@ -7,3 +7,8 @@
 
 * Anyone can create main page design based on their needs.
 * It supports four menu and smooth scrolling and navigation.
+
+## [0.0.2+1] - Image parameter
+
+* Able to add specific image for bottom bar menu
+* Supports height parameter for image and size parameter for icons

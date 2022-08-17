@@ -5,14 +5,16 @@ class CommonList {
   String? label;
   String? content;
   IconData? icon;
-  Image? image;
+  String image="";
+  double height=24;
   Widget? mainWidget;
   int uniqueID = 0;
 
   CommonList(
       {this.label,
       this.content,
-      this.image,
+      this.image="",
+        this.height=24,
       this.mainWidget,
       this.icon,
       required this.uniqueID});
@@ -22,6 +24,7 @@ class CommonList {
     content = json['content'];
     uniqueID = json['id'];
     icon = json['icon'];
+    height = json['height'];
     mainWidget = json['widget'];
     image = json['image'];
   }
@@ -32,6 +35,7 @@ class CommonList {
     data['content'] = content;
     data['id'] = uniqueID;
     data['icon'] = icon;
+    data['height'] = height;
     data['widget'] = mainWidget;
     data['image'] = image;
     return data;

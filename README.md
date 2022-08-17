@@ -15,7 +15,7 @@ A New Flutter package which helps to scroll the content with their respective bo
 * Add the dependency
 
 dependencies:
-  scrollable_list: ^0.0.2
+  scrollable_list: ^0.0.2+1
 
 * Import the package
 
@@ -37,6 +37,8 @@ import 'package:scrollable_list/scrollable_list.dart';
 
 <img src="/home.jpg" height="300em" />
 <img src="/search.jpg" height="300em" />
+<img src="/profile.jpg" height="300em" />
+<img src="/settings.jpg" height="300em" />
 
 ## Example
 

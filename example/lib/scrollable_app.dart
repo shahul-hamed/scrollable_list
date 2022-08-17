@@ -39,6 +39,7 @@ class ScrollablePage extends StatelessWidget {
       uniqueID: 1,
       content: "",
       label: "Home",
+      image: "assets/images/home.png",
       icon: Icons.home,
     ),
     CommonList(
@@ -46,17 +47,21 @@ class ScrollablePage extends StatelessWidget {
       content: "",
       label: "Search",
       icon: Icons.search_rounded,
+      image: "assets/images/search.png",
     ),
     CommonList(
       uniqueID: 3,
       content: "",
       label: "Profile",
+      height: 23,
+      image: "assets/images/user.png",
       icon: Icons.person,
     ),
     CommonList(
       uniqueID: 4,
       content: "",
       label: "Settings",
+      image: "assets/images/settings.png",
       icon: Icons.settings,
     ),
   ];
@@ -67,15 +72,14 @@ class ScrollablePage extends StatelessWidget {
       scrollController: controller,
       bodyContent: list,
       bottomContent: bottomList,
-
       /// Customized app bar widget
       appbar: CustomAppbar(
         title: title,
       ),
-
+      /// Size of the icon
+      iconSize: 24,
       /// Color represents the selected element
       selectedColor: Colors.blue,
-
       /// Color represents the unselected element
       unSelectedColor: Colors.black38,
     );

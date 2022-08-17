@@ -13,6 +13,9 @@ class ScrollableWidget extends StatefulWidget {
   final Color unSelectedColor;
   final bool isSelected;
   final int selectedIndex;
+  final double titleFont;
+  final double subTitleFont;
+  final double iconSize;
   const ScrollableWidget(
       {Key? key,
 
@@ -27,7 +30,10 @@ class ScrollableWidget extends StatefulWidget {
       this.selectedColor = Colors.black,
       this.unSelectedColor = Colors.black26,
       this.isSelected = false,
-      this.selectedIndex = 0})
+      this.selectedIndex = 0,
+        this.titleFont = 18,
+        this.subTitleFont = 15,
+        this.iconSize = 30})
       : super(key: key);
 
   @override
@@ -62,7 +68,7 @@ class ScrollableWidgetState extends State<ScrollableWidget> {
                               height: 10,
                             ),
                             Text(e.content.toString(),
-                                style: const TextStyle(fontSize: 18)),
+                                style:  TextStyle(fontSize: widget.titleFont)),
                             e.mainWidget!
                           ],
                         )),
@@ -129,19 +135,24 @@ class ScrollableWidgetState extends State<ScrollableWidget> {
                             /// Check whether the conditions is true/false , if it is true SizedBox will be displayed.
                             widget.isBottomLabelOnly
                                 ? const SizedBox()
-                                : Icon(
+                                : e.value.image.isNotEmpty?Image.asset(e.value.image,height: e.value.height,
+                              color: currentIndex == e.key
+                                  ? widget.selectedColor
+                                  : widget.unSelectedColor,
+                            ):
+                            Icon(
                                     e.value.icon,
-                                    size: 30,
+                                    size: widget.iconSize,
                                     color: currentIndex == e.key
                                         ? widget.selectedColor
                                         : widget.unSelectedColor,
                                   ),
-
+                              const SizedBox(height: 6,),
                             /// A title of the bottom bar menu
                             Text(
                               e.value.label.toString(),
                               style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: widget.subTitleFont,
                                   color: currentIndex == e.key
                                       ? widget.selectedColor
                                       : widget.unSelectedColor),
