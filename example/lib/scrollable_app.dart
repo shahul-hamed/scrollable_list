@@ -47,18 +47,21 @@ class ScrollablePage extends StatelessWidget {
       content: "",
       label: "Search",
       icon: Icons.search_rounded,
+      image: "assets/images/search.png",
     ),
     CommonList(
       uniqueID: 3,
       content: "",
       label: "Profile",
       height: 23,
+      image: "assets/images/user.png",
       icon: Icons.person,
     ),
     CommonList(
       uniqueID: 4,
       content: "",
       label: "Settings",
+      image: "assets/images/settings.png",
       icon: Icons.settings,
     ),
   ];
@@ -74,7 +77,7 @@ class ScrollablePage extends StatelessWidget {
         title: title,
       ),
       /// Size of the icon
-      iconSize: 26,
+      iconSize: 24,
       /// Color represents the selected element
       selectedColor: Colors.blue,
       /// Color represents the unselected element
