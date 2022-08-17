@@ -49,34 +49,19 @@ class ScrollablePage extends StatelessWidget {
   /* Here we have the list of main content type CommonList, which is occupy the body of the page */ 
  /* Each common list has the label , content , icon and main widget */
     final list = <CommonList>[
-       CommonList(
-           uniqueID: 1,
-           content: "Home page",
-           label: "Home",
-           mainWidget: const Content()),
-       CommonList(
-           uniqueID: 2,
-           content: "Search page",
-           label: "Search",
-           mainWidget: const Content()),
-       CommonList(
-           uniqueID: 3,
-           content: "Profile page",
-           label: "Profile",
-           mainWidget: const Content()),
-       CommonList(
-           uniqueID: 4,
-           content: "Settings page",
-           label: "Settings",
-           mainWidget: const Content()),
+       CommonList(uniqueID: 1,content: "Home page",label: "Home",mainWidget: const Content()),
+       CommonList( uniqueID: 2,content: "Search page",label: "Search",mainWidget: const Content()),
+       CommonList(uniqueID: 3,content: "Profile page",label: "Profile",mainWidget: const Content()),
+       CommonList(uniqueID: 4,content: "Settings page",label: "Settings", mainWidget: const Content()),
      ];
       /*Here we have the list of bottom content type CommonList, which is occupy the bottom of the page */
      /* Able to add image element for each object */
-   final bottomList = [
-     CommonList(uniqueID: 1,content:"",label: "Home",icon: Icons.home, image: "assets/images/home.png" ),
-     CommonList(uniqueID: 2,content:"",label: "Search",icon: Icons.search_rounded ),
-     CommonList(uniqueID: 3,content:"",label: "Profile",icon: Icons.person ),
-   ];
+  final bottomList = [
+      CommonList(uniqueID: 1, content: "",label: "Home", image: "assets/images/home.png",icon: Icons.home ),
+      CommonList(uniqueID: 2,content: "",label: "Search", icon: Icons.search_rounded,image: "assets/images/search.png" ),
+      CommonList(uniqueID: 3,content: "",label: "Profile",height: 23,image: "assets/images/user.png", icon: Icons.person),
+      CommonList( uniqueID: 4,content: "", label: "Settings",image: "assets/images/settings.png",icon: Icons.settings),
+    ];
   final ScrollController controller = ScrollController();
   @override
   Widget build(BuildContext context) {
